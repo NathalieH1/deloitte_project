@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Page de Salle - Deloitte</title>
+    <script>
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.equipements input[type="checkbox"]');
+            const progress = document.querySelector('.progress-bar');
+            const total = checkboxes.length;
+            let checked = 0;
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    checked++;
+                }
+            });
+            const percentage = (checked / total) * 100;
+            progress.style.width = percentage + '%';
+            progress.innerHTML = Math.round(percentage) + '%';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="assets\images\logo_deloitte.avif" alt="Logo Deloitte" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Etage</a>
+                    <div class="dropdown-content">
+                        <a href="#">Salle 1</a>
+                        <a href="#">Salle 2</a>
+                        <a href="#">Salle 3</a>
+                    </div>
+                </li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="plan-etage">
+            <h2>Plan de l'étage</h2>
+            <img src="assets\images\PLAN etage.jpg" alt="Plan de l'étage">
+        </section>
+        
+        <section id="detail-salle">
+            <h2>Détail de la Salle</h2>
+            <div class="vignette">
+                <img src="assets\images\Vignette Salle.png" alt="Vignette de la Salle">
+            </div>
+            <h2>Schéma de câblage</h2>
+            <div class="schema">
+                <img src="assets\images\Schéma Salle Bleu.png" alt="Schéma de Câblage">
+            </div>
+            <div class="equipements">
+                <h3>Équipements de la Salle</h3>
+                <form>
+                    <label><input type="checkbox" onclick="updateProgress()"> Écran Samsung 65 pouces</label><br>
+                    <label><input type="checkbox" onclick="updateProgress()"> Poly X52</label><br>
+                    <label><input type="checkbox" onclick="updateProgress()"> Dock station HP G5</label><br>
+                    <label><input type="checkbox" onclick="updateProgress()"> Câble USB</label><br>
+                    <label><input type="checkbox" onclick="updateProgress()"> Câble HDMI</label><br>
+                </form>
+                <div class="progress-container">
+                    <div class="progress-bar">0%</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Adresse : Votre adresse ici</p>
+        <p>SIRET : Votre numéro de SIRET ici</p>
+        <img src="assets\images\ananasbio_logo.jpg" alt="Logo de la société" class="footer-logo">
+    </footer>
+</body>
+</html>
