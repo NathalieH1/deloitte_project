@@ -1,5 +1,5 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Raleway', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f9;
@@ -11,7 +11,7 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: #000000;
-    padding: 20px 30px;
+    padding: 15px 70px;
     color: #fff;
 }
 
@@ -27,21 +27,22 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 40px;
+    margin-left: 60px;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-    font-size:18px;
+    font-size: 18px;
 }
 
 nav ul li a:hover {
     color: #0072c6;
 }
 
-.dropdown-content {
+/* Styles pour le menu déroulant */
+.dropdown-content, .sub-dropdown-content {
     display: none;
     position: absolute;
     background-color: #000000;
@@ -52,18 +53,43 @@ nav ul li a:hover {
     overflow: hidden;
 }
 
-.dropdown-content a {
+.dropdown-content a, .sub-dropdown-content a {
     color: #0072c6;
+    padding: 52px 14px;
+    text-decoration: none;
+    display: block;
+}
+.sub-dropdown-content a {
+    color: #f1f1f1;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-
 .dropdown-content a:hover {
+    color: #f1f1f1;
+    background-color: #0072c6;
+    padding-left: 5px;
+}
+.sub-dropdown-content a:hover {
+    color: #0072c6;
     background-color: #f1f1f1;
 }
 
+/* Styles pour les sous-menus */
+.sub-dropdown {
+    position: relative;
+}
+
+.sub-dropdown-content {
+    top: 0px;
+    left: 80px; /* Ajuste cette valeur en fonction de vos besoins */
+}
+
 .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.sub-dropdown:hover .sub-dropdown-content {
     display: block;
 }
 
@@ -84,6 +110,25 @@ h2 {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.flex-container .vignette, .flex-container .schema {
+    flex: 1;
+    margin-right: 20px;
+    
+}
+.vignette img, .schema img {
+background: #fff;
+}
+
+.flex-container .schema {
+    margin-right: 0;
+}
+
 
 .equipements {
     background: #fff;
@@ -122,7 +167,7 @@ h2 {
 }
 
 footer {
-    background-color: #333;
+    background-color: #0d0c0c;
     color: #fff;
     text-align: center;
     padding: 20px 0;
@@ -130,5 +175,140 @@ footer {
 }
 
 .footer-logo {
-    height: 30px;
+    height: 50px;
+}
+
+.chat-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 40px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    
+    max-height: 400px;
+}
+
+
+
+.chat-message {
+    background: #0072c6;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: fit-content;
+    max-width: 80%;
+    max-height: calc(100% - 80px);
+}
+
+.chat-input-container {
+    display: flex;
+  position: relative;
+  align-items: flex-end; 
+}
+
+#chat-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-right: 10px;
+    outline: none;
+    font-size: 16px;
+    resize: none; /* Prevent manual resizing */
+    min-height: 40px; /* Set minimum height */
+    max-height: 100px; /* Set maximum height */
+    padding-right: 10px; /* Add padding to make space for the button */
+}
+
+.send-button {
+    background: #0072c6;
+    color: #fff;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 40px; /* Positioning inside the input */
+    height: 30px; /* Fixed height for the button */
+    bottom: 15px; /* Position at the bottom inside the input */
+}
+
+.send-button span {
+    font-size: 20px;
+}
+
+.send-button:hover {
+    background: #005bb5;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    padding-top: 60px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption { 
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
 }
