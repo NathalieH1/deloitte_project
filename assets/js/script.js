@@ -112,3 +112,5 @@ function sendMessageChatbot() {
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
     }
 }
+
+

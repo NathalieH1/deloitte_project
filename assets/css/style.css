@@ -15,7 +15,7 @@ header {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background-color: #0072c6;
+    background-color: #000000;
     padding: 20px 10px;
     color: #fff;
     position: fixed;
@@ -34,24 +34,16 @@ header {
 }
 
 nav ul {
-    
     list-style-type: none;
-    margin: 0;
-    padding-right: 10px;
+    padding-right:50%;
     display:flex;
     flex-direction: column;
-    width: 100%; /* Assurez-vous que le menu prend toute la largeur du header */
+   
 }
 
 nav ul li {
-    margin: 10px 5px;
-    background-color: #000000;
-    border-radius: 15px;
-    padding:15%;
-    width: 100%;
     display: flex;
     justify-content: center;
-    position: relative;
     margin-bottom: 50px;
 }
 
@@ -72,15 +64,15 @@ nav ul li a:hover {
 }
 
 /* Styles pour le menu déroulant */
-.dropdown-content, .sub-dropdown-content {
+.dropdown-content {
     display: none;
     position: absolute;
     background-color: #000000;
-    min-width: 4000px;
+    width: 220px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+   
     border-radius: 4px;
-    overflow: hidden;
+   
 }
 
 .dropdown-content a, .sub-dropdown-content a {
@@ -110,12 +102,14 @@ nav ul li a:hover {
 /* Styles pour les sous-menus */
 .sub-dropdown {
     position: relative;
-   
+  
 }
 
 .sub-dropdown-content {
-    top: 0px;
-    left: 300px; /* Ajuste cette valeur en fonction de vos besoins */
+    position: relative;
+    top: 20px;
+    left: 0; /* Ajuste cette valeur en fonction de vos besoins */
+  
 }
 
 .dropdown:hover .dropdown-content {
@@ -131,11 +125,7 @@ nav ul li a:hover {
     color: #0072c6; /* Maintient la couleur du texte de l'élément parent */
     
 }
- /* Pour éviter que les éléments parent ne soient cachés par les sous-menus */
-.dropdown-content > .sub-dropdown:hover > .sub-dropdown-content {
-    margin-left: 420px; /* Ajuste cette valeur en fonction de la largeur du sous-menu */
-    top: 0;
-}
+
 
 main {
     
@@ -149,6 +139,89 @@ main {
 h2 {
     color: #0072c6;
 }
+/* Styles pour la section de la liste des salles */
+
+h1 {
+    color: #0072c6;
+    margin: 20px;
+}
+
+.etage-section {
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    width:80%;
+}
+
+.etage-section h2 {
+    color: #0072c6;
+}
+
+.salle-list {
+    list-style: none;
+    padding: 0;
+}
+
+.salle-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    max-height: 20px;
+    width:98%;
+}
+
+.salle-item span {
+    flex: 1;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.progress-container1 {
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    margin-left: 20%;
+    position: relative;
+    height: 30px;
+    width: 20%;
+    padding-right: 10%;
+}
+
+.progress-bar1 {
+    display: flex;
+    background: #0072c6;
+    height: 100%;
+    width: 0;
+    border-radius: 20px;
+    text-align: center;
+    color: #fff;
+    line-height: 30px;
+    font-weight: bold;
+ 
+}
+
+button {
+    background-color: #0072c6;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 30%;
+}
+
+button:hover {
+    background-color: #005bb5;
+}
+
 
 /* Styles pour les sections d'images */
 
@@ -220,7 +293,7 @@ background: black;
     margin-top: 20px;
     position: relative;
     height: 30px;
-    width: 100%;
+    width: 85%;
 }
 
 .progress-bar {
@@ -235,7 +308,7 @@ background: black;
 }
 
 footer {
-    background-color: #000000;
+    background-color: #0072c6;
     color: #fff;
     text-align: center;
     padding: 20px 0;
@@ -336,13 +409,13 @@ footer p {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #0072c6;
+    background-color: #000000;
     color: #fff;
     border-radius: 50px;
     padding: 10px 20px;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
+    display: none;
     align-items: center;
     z-index: 1000;
 }
@@ -357,7 +430,7 @@ footer p {
     font-size: 20px;
     margin-right: 10px;
     background-color: #fff;
-    color: #0072c6;
+    color: #000000;
     border-radius: 50%;
     padding: 5px;
     display: flex;
@@ -365,7 +438,7 @@ footer p {
     justify-content: center;
     width: 30px;
     height: 30px;
-    border: 2px solid #0072c6;
+    border: 0.5px solid #ffffff;
 }
 
 
@@ -374,16 +447,18 @@ footer p {
 #chatbot {
     position: fixed;
     bottom: 0;
+    top: 0;
     right: 0;
     width: 300px;
-    height: 80vh; /* Augmenter la hauteur du bandeau */
-    background-color: #fff;
+    min-height: 10vh; /* Augmenter la hauteur du bandeau */
+    background-color: #f4f4f9;
     border: 1px solid #ddd;
     border-radius: 10px 10px 0 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: none;
+    display: flex;
     flex-direction: column;
-    z-index: 999;
+   
+    
 }
 
 #chatbot-header {
@@ -393,7 +468,6 @@ footer p {
     background-color: #0072c6;
     color: #fff;
     padding: 10px;
-    border-radius: 10px 10px 0 0;
     position: relative;
 }
 
@@ -414,27 +488,45 @@ footer p {
 
 #chatbot-input-container {
     display: flex;
-    padding: 10px;
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
     border-top: 1px solid #ddd;
+   min-height: auto;
 }
 
 #chatbot-input {
     flex: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
+    padding-top: 10px;
+    padding-left: 25px;
+    border: 1.5px solid #0072c6;
     border-radius: 5px;
-    resize: none;
     font-size: 16px;
 }
+
+.custom-file-upload {
+    display: inline-block;
+    cursor: pointer;
+    color: #0072c6;
+    font-size: 20px;
+    position: absolute;
+    left: 6px; /* Position the paperclip icon inside the input field */
+    top: 6%;
+}
+
 
 #chatbot-send {
     background-color: #0072c6;
     color: #fff;
     border: none;
-    padding: 10px;
-    border-radius: 5px;
+    flex:1;
+    border-radius: 20px;
     cursor: pointer;
-    margin-left: 10px;
+    position: absolute;
+    top: 6%;
+    right: 4%;
+
+
 }
 
 #chatbot-send:hover {
@@ -451,30 +543,18 @@ footer p {
 
 /* Footer du chatbot */
 #chatbot-footer {
-    background-color: f1f1f1;
+    background-color: #0072c6;
     color: #fff;
     text-align: center;
     padding: 10px;
     border-top: 1px solid #ddd;
-    border-radius: 0 0 10px 10px;
+   
     font-size: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#chatbot-send-footer {
-    background-color: #0072c6;
-    color: #fff;
-    border: none;
-    padding: 10px 40px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
 
-#chatbot-send-footer:hover {
-    background-color: #005bb5;
-}
 
 
 

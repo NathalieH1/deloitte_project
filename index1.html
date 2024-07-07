@@ -1,1 +1,144 @@
-{\rtf1}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Détail Salle</title>
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Fonction JavaScript pour renvoyer l'URL de la page d'accueil
+        function home_url() {
+            return 'index.html'; // Changez cela à l'URL de votre page d'accueil
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <a href="javascript:void(0);" onclick="location.href=home_url();">
+            <img src="assets\images\logo_deloitte.avif" alt="Logo Deloitte" class="logo">
+            </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Etages</a>
+                    <div class="dropdown-content">
+                        <div class="sub-dropdown">
+                            <a href="index.html#etage1">Etage 1</a>
+                            <div class="sub-dropdown-content">
+                                <a href="index.html#salle1">Salle 1</a>
+                                <a href="index.html#salle2">Salle 2</a>
+                                <a href="index.html#salle3">Salle 3</a>
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="index.html#etage2">Etage 2</a>
+                            <div class="sub-dropdown-content">
+                                <a href="index.html#salle1">Salle 1</a>
+                                <a href="index.html#salle2">Salle 2</a>
+                                <a href="index.html#salle3">Salle 3</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#Contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="plan-etage">
+            <h2>Plan de l'étage</h2>
+            <img src="assets\images\PLAN etage.jpg" alt="Plan de l'étage" onclick="openModal(this)">
+        </section>
+        
+        <section id="detail-salle">
+            <div class="flex-container">
+                <div class="vignette">
+                    <h2>Visuel de la salle</h2>
+                    <img src="assets\images\Vignette Salle.png" alt="Vignette de la Salle" onclick="openModal(this)">
+                </div>
+                <div class="schema">
+                    <h2>Schéma de câblage</h2>
+                    <img src="assets\images\Schéma Salle Bleu.png" alt="Schéma de Câblage" onclick="openModal(this)">
+                </div>
+            </div>
+           
+            <h2>Détail des Équipements</h2>
+            <ul>
+                <li><label><input type="checkbox" class="salle1-equipement" onclick="updateProgress('salle1')"> Écran Samsung 65 pouces</label></li>
+                <li><label><input type="checkbox" class="salle1-equipement" onclick="updateProgress('salle1')"> Poly X52</label></li>
+                <li><label><input type="checkbox" class="salle1-equipement" onclick="updateProgress('salle1')"> Dock station HP G5</label></li>
+                <li><label><input type="checkbox" class="salle1-equipement" onclick="updateProgress('salle1')"> Câble USB</label></li>
+                <li><label><input type="checkbox" class="salle1-equipement" onclick="updateProgress('salle1')"> Câble HDMI</label></li>
+            </ul>
+            <h2>Progression de l'Installation</h2>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-detail-salle1">0%</div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <h3>ANANAS</h3>
+        <p>Route de Fontenay, Ballancourt-sur-Essonne, Île-de-France 91610, FR</p>
+        <p>SIRET : 892 208 026</p>
+        <img src="assets\images\ananasbio_logo.jpg" alt="Logo de la société" class="footer-logo">
+    </footer>
+ 
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="zoomLens" class="zoom-lens"></div>
+    </div>
+
+    
+  
+<script>
+ function updateProgress(salle) {
+    const checkboxes = document.querySelectorAll('.' + salle + '-equipement');
+    const progressBar = document.getElementById('progress-detail-' + salle);
+    const total = checkboxes.length;
+    let checked = 0;
+
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            checked++;
+        }
+    });
+
+    const percentage = (checked / total) * 100;
+    progressBar.style.width = percentage + '%';
+    progressBar.innerHTML = Math.round(percentage) + '%';
+
+    localStorage.setItem(salle + '-progress', percentage);
+    console.log('Progress saved for ' + salle + ': ' + percentage + '%');
+}
+
+function loadProgress(salle) {
+    const savedProgress = localStorage.getItem(salle + '-progress');
+    console.log('Loaded progress for ' + salle + ': ' + savedProgress + '%');
+    if (savedProgress !== null) {
+        const progressBar = document.getElementById('progress-detail-' + salle);
+        progressBar.style.width = savedProgress + '%';
+        progressBar.innerHTML = Math.round(savedProgress) + '%';
+
+        const checkboxes = document.querySelectorAll('.' + salle + '-equipement');
+        const percentage = parseInt(savedProgress);
+        const checkedCount = Math.round((percentage / 100) * checkboxes.length);
+
+        for (let i = 0; i < checkedCount; i++) {
+            checkboxes[i].checked = true;
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    loadProgress('salle1');
+});
+    </script>
+</body>
+</html>
