@@ -152,7 +152,7 @@ h1 {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px;
-    width:80%;
+    width:77%;
 }
 
 .etage-section h2 {
@@ -174,7 +174,7 @@ h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
     max-height: 20px;
-    width:98%;
+    width:99%;
 }
 
 .salle-item span {
@@ -449,7 +449,7 @@ footer p {
     bottom: 0;
     top: 0;
     right: 0;
-    width: 300px;
+    width: 350px;
     min-height: 10vh; /* Augmenter la hauteur du bandeau */
     background-color: #f4f4f9;
     border: 1px solid #ddd;
@@ -489,7 +489,7 @@ footer p {
 #chatbot-input-container {
     display: flex;
     padding-top: 10px;
-    padding-left: 5px;
+    padding-left: 20px;
     padding-right: 40px;
     border-top: 1px solid #ddd;
    min-height: auto;
@@ -502,7 +502,7 @@ footer p {
     border: 2.5px solid #0072c6;
     border-radius: 5px;
     font-size: 16px;
-    height: 80vh;
+    height: 70vh;
 }
 
 .custom-file-upload {
@@ -510,8 +510,8 @@ footer p {
     cursor: pointer;
     font-size: 20px;
     position: absolute;
-    left: 6px; /* Position the paperclip icon inside the input field */
-    top: 6%;
+    left: 23px; /* Position the paperclip icon inside the input field */
+    top: 7%;
 }
 
 
